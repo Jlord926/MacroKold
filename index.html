@@ -751,6 +751,18 @@
             border-radius: 4px;
         }
 
+        /* HIDE INVENTORY MANAGEMENT FEATURES WHEN PUBLISHED */
+        .item-actions,
+        .item-details-actions,
+        .btn-add,
+        .controls .action-buttons {
+            display: none !important;
+        }
+
+        .btn-add-image {
+            display: none !important;
+        }
+
         /* Responsive Styles */
         @media (max-width: 768px) {
             .header-container {
@@ -930,7 +942,7 @@
                         <p>At Macro Kold Inc., customer satisfaction is our top priority. We work closely with our clients to understand their needs and provide tailored solutions that deliver optimal performance and value.</p>
                     </div>
                     <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1581093458791-8a6a6e7ee3e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Macro Kold Inc. Team">
+                        <img src="MacroKoldTeam.png" alt="Macro Kold Inc. Team">
                     </div>
                 </div>
             </div>
@@ -1029,7 +1041,8 @@
                     <input type="text" id="searchInput" placeholder="Search inventory...">
                 </div>
                 <div class="action-buttons">
-                    <button class="inventory-btn btn-add" id="addItemBtn">Add New Item</button>
+                    <!-- Add New Item button is hidden by CSS -->
+                    <button class="inventory-btn btn-add" id="addItemBtn" style="display: none;">Add New Item</button>
                     <button class="inventory-btn btn-print" id="printBtn">Print Inventory</button>
                 </div>
             </div>
@@ -1062,7 +1075,8 @@
                     <div class="item-details-description" id="detailsDescription"></div>
                     <div class="item-details-location" id="detailsLocation"></div>
                     
-                    <div class="item-details-actions">
+                    <!-- Edit and Delete buttons are hidden by CSS -->
+                    <div class="item-details-actions" style="display: none;">
                         <button class="inventory-btn btn-edit" id="editDetailsBtn">Edit</button>
                         <button class="inventory-btn btn-delete" id="deleteDetailsBtn">Delete</button>
                     </div>
@@ -1112,8 +1126,8 @@
         </div>
     </footer>
 
-    <!-- Add/Edit Item Modal -->
-    <div class="modal" id="itemModal">
+    <!-- Add/Edit Item Modal (Hidden from users) -->
+    <div class="modal" id="itemModal" style="display: none;">
         <div class="modal-content">
             <h2 id="modalTitle">Add New Item</h2>
             <form id="itemForm">
@@ -1138,7 +1152,7 @@
                             <button type="button" class="btn-remove-image">Remove</button>
                         </div>
                     </div>
-                    <button type="button" class="btn-add-image" id="addImageBtn">Add Another Image</button>
+                    <button type="button" class="btn-add-image" id="addImageBtn" style="display: none;">Add Another Image</button>
                 </div>
                 
                 <div class="form-actions">
@@ -1342,7 +1356,8 @@
                         <div class="item-description">${item.description}</div>
                         <div class="item-location">${item.location}</div>
                     </div>
-                    <div class="item-actions">
+                    <!-- Edit and Delete buttons are hidden by CSS -->
+                    <div class="item-actions" style="display: none;">
                         <button class="inventory-btn btn-edit" onclick="editItem(${item.id})">Edit</button>
                         <button class="inventory-btn btn-delete" onclick="deleteItem(${item.id})">Delete</button>
                     </div>
@@ -1428,143 +1443,13 @@
             }
         }
 
-        // Open modal for adding new item
-        function openAddModal() {
-            modalTitle.textContent = 'Add New Item';
-            itemForm.reset();
-            currentEditItemId = null;
-            
-            // Reset image inputs to one
-            imageInputsContainer.innerHTML = `
-                <div class="image-input">
-                    <input type="text" class="image-url" placeholder="Image URL" required>
-                    <button type="button" class="btn-remove-image">Remove</button>
-                </div>
-            `;
-            
-            itemModal.style.display = 'flex';
-        }
-
-        // Open modal for editing existing item
-        function editItem(id) {
-            const item = inventory.find(item => item.id === id);
-            if (item) {
-                modalTitle.textContent = 'Edit Item';
-                document.getElementById('itemCode').value = item.code;
-                document.getElementById('itemDescription').value = item.description;
-                document.getElementById('itemLocation').value = item.location;
-                
-                // Populate image inputs
-                imageInputsContainer.innerHTML = '';
-                item.images.forEach(imageUrl => {
-                    addImageInput(imageUrl);
-                });
-                
-                currentEditItemId = id;
-                itemModal.style.display = 'flex';
-            }
-        }
-
-        // Add image input field
-        function addImageInput(value = '') {
-            const imageInput = document.createElement('div');
-            imageInput.className = 'image-input';
-            imageInput.innerHTML = `
-                <input type="text" class="image-url" placeholder="Image URL" value="${value}" required>
-                <button type="button" class="btn-remove-image">Remove</button>
-            `;
-            imageInputsContainer.appendChild(imageInput);
-        }
-
-        // Delete an item
-        function deleteItem(id) {
-            if (confirm('Are you sure you want to delete this item?')) {
-                inventory = inventory.filter(item => item.id !== id);
-                
-                // Save to localStorage
-                localStorage.setItem('macroKoldInventory', JSON.stringify(inventory));
-                
-                // If the deleted item was selected, clear the details panel
-                if (selectedItemId === id) {
-                    selectedItemId = null;
-                    itemDetailsPanel.classList.remove('active');
-                }
-                
+        // Initialize the inventory display when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // If we're on the inventory tab, render the inventory
+            if (document.getElementById('inventory').classList.contains('active')) {
                 renderInventory();
             }
-        }
-
-        // Save item (add new or update existing)
-        function saveItem(e) {
-            e.preventDefault();
-            
-            const code = document.getElementById('itemCode').value;
-            const description = document.getElementById('itemDescription').value;
-            const location = document.getElementById('itemLocation').value;
-            
-            // Get all image URLs
-            const imageInputs = document.querySelectorAll('.image-url');
-            const images = Array.from(imageInputs)
-                .map(input => input.value.trim())
-                .filter(url => url !== '');
-            
-            if (images.length === 0) {
-                alert('Please add at least one image URL');
-                return;
-            }
-            
-            if (currentEditItemId) {
-                // Update existing item
-                const index = inventory.findIndex(item => item.id === currentEditItemId);
-                if (index !== -1) {
-                    inventory[index] = {
-                        ...inventory[index],
-                        code,
-                        description,
-                        location,
-                        images
-                    };
-                    
-                    // If the updated item is selected, update the details panel
-                    if (selectedItemId === currentEditItemId) {
-                        selectItem(currentEditItemId);
-                    }
-                }
-            } else {
-                // Add new item
-                const newId = inventory.length > 0 ? Math.max(...inventory.map(item => item.id)) + 1 : 1;
-                inventory.push({
-                    id: newId,
-                    code,
-                    description,
-                    location,
-                    images
-                });
-            }
-            
-            // Save to localStorage
-            localStorage.setItem('macroKoldInventory', JSON.stringify(inventory));
-            
-            renderInventory();
-            itemModal.style.display = 'none';
-        }
-
-        // Search functionality
-        function searchItems() {
-            const searchTerm = searchInput.value.toLowerCase();
-            const filteredItems = inventory.filter(item => 
-                item.code.toLowerCase().includes(searchTerm) ||
-                item.description.toLowerCase().includes(searchTerm) ||
-                item.location.toLowerCase().includes(searchTerm)
-            );
-            renderInventory(filteredItems);
-            
-            // If the selected item is not in the filtered results, clear the details panel
-            if (selectedItemId && !filteredItems.find(item => item.id === selectedItemId)) {
-                selectedItemId = null;
-                itemDetailsPanel.classList.remove('active');
-            }
-        }
+        });
 
         // Print functionality
         function printInventory() {
@@ -1616,57 +1501,27 @@
             }
         }
 
-        // Event listeners
-        addItemBtn.addEventListener('click', openAddModal);
-        cancelBtn.addEventListener('click', () => {
-            itemModal.style.display = 'none';
+        // Event listeners for remaining functionality
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const filteredItems = inventory.filter(item => 
+                item.code.toLowerCase().includes(searchTerm) ||
+                item.description.toLowerCase().includes(searchTerm) ||
+                item.location.toLowerCase().includes(searchTerm)
+            );
+            renderInventory(filteredItems);
+            
+            // If the selected item is not in the filtered results, clear the details panel
+            if (selectedItemId && !filteredItems.find(item => item.id === selectedItemId)) {
+                selectedItemId = null;
+                itemDetailsPanel.classList.remove('active');
+            }
         });
-        itemForm.addEventListener('submit', saveItem);
-        searchInput.addEventListener('input', searchItems);
+
         printBtn.addEventListener('click', printInventory);
         printItemBtn.addEventListener('click', printItem);
-        editDetailsBtn.addEventListener('click', () => {
-            if (selectedItemId) {
-                editItem(selectedItemId);
-            }
-        });
-        deleteDetailsBtn.addEventListener('click', () => {
-            if (selectedItemId) {
-                deleteItem(selectedItemId);
-            }
-        });
         prevImageBtn.addEventListener('click', prevImage);
         nextImageBtn.addEventListener('click', nextImage);
-        addImageBtn.addEventListener('click', () => {
-            addImageInput();
-        });
-
-        // Event delegation for removing image inputs
-        imageInputsContainer.addEventListener('click', (e) => {
-            if (e.target.classList.contains('btn-remove-image')) {
-                // Don't remove if there's only one image input left
-                if (document.querySelectorAll('.image-input').length > 1) {
-                    e.target.closest('.image-input').remove();
-                } else {
-                    alert('You need at least one image for the item.');
-                }
-            }
-        });
-
-        // Close modal when clicking outside of it
-        window.addEventListener('click', (e) => {
-            if (e.target === itemModal) {
-                itemModal.style.display = 'none';
-            }
-        });
-
-        // Initialize the inventory display when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            // If we're on the inventory tab, render the inventory
-            if (document.getElementById('inventory').classList.contains('active')) {
-                renderInventory();
-            }
-        });
     </script>
 </body>
 </html>
