@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macro Kold Inc. | Refrigeration & Air Conditioning Solutions</title>
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #3498db;
+            --accent-color: #2ecc71;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --text-color: #333;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-left: 10px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover, 
+        nav ul li a.active {
+            color: var(--white);
+            background-color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('Maintenance and Repair.png');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #27ae60;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: #f5f7fa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-details p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-details i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        .map {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Inventory Tab Styles */
+        .tab-content {
+            display: none;
+            padding: 80px 0;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Inventory System Styles */
+        .inventory-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .inventory-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .item-details-panel {
+            flex: 0 0 450px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .item-details-panel.active {
+            display: block;
+        }
+
+        .item-details-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item-details-image-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .item-details-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 10px;
+        }
+
+        .nav-btn {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .nav-btn:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .image-counter {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+
+        .thumbnail-container {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .thumbnail {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .thumbnail.active {
+            opacity: 1;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .item-details-code {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .item-details-description {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .item-details-location {
+            display: flex;
+            align-items: center;
+            color: #7f8c8d;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .item-details-location::before {
+            content: "📍";
+            margin-right: 5px;
+        }
+
+        .item-details-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .item-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .item-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .item-card.selected {
+            border: 3px solid var(--secondary-color);
+        }
+
+        .item-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item-card-details {
+            padding: 15px;
+        }
+
+        .item-code {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .item-description {
+            margin-bottom: 10px;
+            color: #555;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .item-location {
+            display: flex;
+            align-items: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .item-location::before {
+            content: "📍";
+            margin-right: 5px;
+        }
+
+        .item-actions {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 15px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #eee;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            max-width: 400px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .inventory-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-add {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-edit {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-save {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-delete {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .btn-print {
+            background-color: #f39c12;
+            color: white;
+        }
+
+        .inventory-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-input-group {
+            margin-bottom: 15px;
+        }
+
+        .image-input {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .image-input input {
+            flex: 1;
+        }
+
+        .btn-remove-image {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .btn-add-image {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 15px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .no-items {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+        }
+
+        /* Success Message */
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        /* Error Message */
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        /* Quote Form Highlight */
+        .quote-highlight {
+            background-color: #e8f4fd;
+            border-left: 4px solid var(--secondary-color);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .inventory-container {
+                flex-direction: column;
+            }
+            
+            .inventory-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .item-details-panel {
+                flex: 0 0 auto;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+            
+            .search-bar {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">❄️</div>
+                <h1>Macro Kold Inc.</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-tab="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-tab="services">Services</a></li>
+                    <li><a href="#" class="nav-link" data-tab="about">About Us</a></li>
+                    <li><a href="#" class="nav-link" data-tab="contact">Contact</a></li>
+                    <li><a href="#" class="nav-link" data-tab="inventory">Inventory</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Tab -->
+    <section id="home" class="tab-content active">
+        <div class="hero">
+            <div class="container">
+                <h2>Your Trusted Partner in Refrigeration & Air Conditioning</h2>
+                <p>Providing high-quality cooling solutions for commercial and industrial applications since 2005.</p>
+                <a href="#" class="btn" id="getQuoteBtn">Get a Quote</a>
+            </div>
+        </div>
+
+        <div class="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Core Services</h2>
+                    <p>We specialize in delivering comprehensive cooling solutions tailored to your specific needs.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('Refrigeration.png')"></div>
+                        <div class="service-content">
+                            <h3>Refrigeration Systems</h3>
+                            <p>Commercial and industrial refrigeration solutions for restaurants, supermarkets, and cold storage facilities.</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('Aircondition.png')"></div>
+                        <div class="service-content">
+                            <h3>Air Conditioning</h3>
+                            <p>Installation, maintenance, and repair of HVAC systems for commercial and residential properties.</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('Doors.png')"></div>
+                        <div class="service-content">
+                            <h3>Cold Storage Doors</h3>
+                            <p>Specialized doors designed for cold storage facilities to maintain temperature integrity and energy efficiency.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Tab -->
+    <section id="services" class="tab-content">
+        <div class="container" style="padding: 80px 0;">
+            <div class="section-title">
+                <h2>Our Comprehensive Services</h2>
+                <p>At Macro Kold Inc., we provide end-to-end cooling solutions for various industries.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('commercial refrigeration.png')"></div>
+                    <div class="service-content">
+                        <h3>Commercial Refrigeration</h3>
+                        <p>We design and install refrigeration systems for restaurants, hotels, supermarkets, and convenience stores. Our solutions ensure optimal temperature control for food safety and quality.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('Industrial Cooling.png')"></div>
+                    <div class="service-content">
+                        <h3>Industrial Cooling</h3>
+                        <p>Large-scale cooling systems for manufacturing facilities, warehouses, and processing plants. We handle projects of any size with precision and expertise.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('Hvac system.png')"></div>
+                    <div class="service-content">
+                        <h3>HVAC Systems</h3>
+                        <p>Complete heating, ventilation, and air conditioning solutions for commercial buildings, offices, and residential complexes.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('Cold Storage Construction.png')"></div>
+                    <div class="service-content">
+                        <h3>Cold Room Construction</h3>
+                        <p>Custom-built cold storage rooms with specialized doors and insulation to meet your specific temperature requirements.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('Maintenance and Repair.png')"></div>
+                    <div class="service-content">
+                        <h3>Maintenance & Repair</h3>
+                        <p>Regular maintenance services and 24/7 emergency repairs to keep your systems running efficiently and prevent costly downtime.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('Consulting.png')"></div>
+                    <div class="service-content">
+                        <h3>Energy Efficiency Consulting</h3>
+                        <p>We analyze your current systems and recommend upgrades to improve energy efficiency and reduce operating costs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Tab -->
+    <section id="about" class="tab-content">
+        <div class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>About Macro Kold Inc.</h2>
+                        <p>Founded in 2005, Macro Kold Inc. has established itself as a leading provider of refrigeration and air conditioning solutions in Metro Manila and surrounding areas.</p>
+                        <p>Our team of certified technicians and engineers brings decades of combined experience in designing, installing, and maintaining cooling systems for various industries.</p>
+                        <p>We pride ourselves on delivering reliable, energy-efficient solutions that meet our clients' specific requirements while adhering to the highest industry standards.</p>
+                        <p>At Macro Kold Inc., customer satisfaction is our top priority. We work closely with our clients to understand their needs and provide tailored solutions that deliver optimal performance and value.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1581093458791-8a6a6e7ee3e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Macro Kold Inc. Team">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Tab -->
+    <section id="contact" class="tab-content">
+        <div class="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Us</h2>
+                    <p>Get in touch with our team for all your refrigeration and air conditioning needs.</p>
+                </div>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Get In Touch</h3>
+                        <div class="contact-details">
+                            <p><i>📍</i> The Capitol Center, 1002 Shaw Blvd, Pasig, Metro Manila</p>
+                            <p><i>📞</i> (02) 8631-7890</p>
+                            <p><i>📱</i> +63 917 123 4567</p>
+                            <p><i>✉️</i> info@macrokoldinc.com</p>
+                            <p><i>🕒</i> Monday - Friday: 8:30 AM - 5:30 PM</p>
+                            
+                        </div>
+                        <h3>Service Areas</h3>
+                        <p>We serve Metro Manila and surrounding provinces including Rizal, Bulacan, Cavite, and Laguna.</p>
+                        
+                        <div class="map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.207589366261!2d121.05030257599896!3d14.583578977158936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c8455e6265a5%3A0x5c32f38b8b743e5c!2sThe%20Capitol%20Center%2C%201002%20Shaw%20Blvd%2C%20Pasig%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1690216787895!5m2!1sen!2sph" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <div class="quote-highlight" id="quoteHighlight">
+                            <h4>Request a Quote</h4>
+                            <p>Fill out the form below to get a customized quote for your refrigeration or air conditioning needs.</p>
+                        </div>
+                        <form id="inquiryForm">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Service Interested In</label>
+                                <select id="service" name="service" required>
+                                    <option value="">Select a service</option>
+                                    <option value="refrigeration">Refrigeration Systems</option>
+                                    <option value="air-conditioning">Air Conditioning</option>
+                                    <option value="cold-storage">Cold Storage Doors</option>
+                                    <option value="maintenance">Maintenance & Repair</option>
+                                    <option value="consultation">Energy Efficiency Consultation</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Project Details / Message</label>
+                                <textarea id="message" name="message" placeholder="Please provide details about your project or inquiry..." required></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn-submit">Send Inquiry</button>
+                            </div>
+                        </form>
+                        <div class="success-message" id="successMessage">
+                            Thank you for your inquiry! We will get back to you within 24 hours with a quote.
+                        </div>
+                        <div class="error-message" id="errorMessage">
+                            There was an error sending your message. Please try again or contact us directly.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inventory Tab -->
+    <section id="inventory" class="tab-content">
+        <div class="container" style="padding: 80px 0;">
+            <div class="section-title">
+                <h2>Equipment Inventory</h2>
+                <p>Browse our available refrigeration and air conditioning equipment and parts.</p>
+            </div>
+            
+            <div class="controls">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search inventory...">
+                </div>
+                <div class="action-buttons">
+                    <button class="inventory-btn btn-add" id="addItemBtn">Add New Item</button>
+                    <button class="inventory-btn btn-print" id="printBtn">Print Inventory</button>
+                </div>
+            </div>
+            
+            <div class="inventory-container">
+                <div class="inventory-grid" id="inventoryGrid">
+                    <!-- Inventory items will be dynamically added here -->
+                </div>
+                
+                <div class="item-details-panel" id="itemDetailsPanel">
+                    <div class="item-details-header">
+                        <h2>Item Details</h2>
+                        <button class="inventory-btn btn-print" id="printItemBtn">Print</button>
+                    </div>
+                    
+                    <div class="item-details-image-container">
+                        <img src="" alt="Item Image" class="item-details-image" id="detailsImage">
+                        <div class="image-nav">
+                            <button class="nav-btn" id="prevImageBtn">&#10094;</button>
+                            <button class="nav-btn" id="nextImageBtn">&#10095;</button>
+                        </div>
+                        <div class="image-counter" id="imageCounter">1 / 1</div>
+                    </div>
+                    
+                    <div class="thumbnail-container" id="thumbnailContainer">
+                        <!-- Thumbnails will be dynamically added here -->
+                    </div>
+                    
+                    <div class="item-details-code" id="detailsCode"></div>
+                    <div class="item-details-description" id="detailsDescription"></div>
+                    <div class="item-details-location" id="detailsLocation"></div>
+                    
+                    <div class="item-details-actions">
+                        <button class="inventory-btn btn-edit" id="editDetailsBtn">Edit</button>
+                        <button class="inventory-btn btn-delete" id="deleteDetailsBtn">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Macro Kold Inc.</h3>
+                    <p>Your trusted partner for refrigeration and air conditioning solutions since 2005.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-tab="home">Home</a></li>
+                        <li><a href="#" class="nav-link" data-tab="services">Services</a></li>
+                        <li><a href="#" class="nav-link" data-tab="about">About Us</a></li>
+                        <li><a href="#" class="nav-link" data-tab="contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Refrigeration Systems</a></li>
+                        <li><a href="#">Air Conditioning</a></li>
+                        <li><a href="#">Cold Storage Doors</a></li>
+                        <li><a href="#">Maintenance & Repair</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>The Capitol Center, 1002 Shaw Blvd, Pasig, Metro Manila</li>
+                        <li>(02) 8631-7890</li>
+                        <li>info@macrokoldinc.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Macro Kold Inc. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Add/Edit Item Modal -->
+    <div class="modal" id="itemModal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Add New Item</h2>
+            <form id="itemForm">
+                <div class="form-group">
+                    <label for="itemCode">Code Number</label>
+                    <input type="text" id="itemCode" required>
+                </div>
+                <div class="form-group">
+                    <label for="itemDescription">Description</label>
+                    <textarea id="itemDescription" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="itemLocation">Location</label>
+                    <input type="text" id="itemLocation" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Images</label>
+                    <div id="imageInputsContainer">
+                        <div class="image-input">
+                            <input type="text" class="image-url" placeholder="Image URL" required>
+                            <button type="button" class="btn-remove-image">Remove</button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-image" id="addImageBtn">Add Another Image</button>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="inventory-btn btn-edit" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="inventory-btn btn-save" id="saveItemBtn">Save Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Tab Navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links and tabs
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Show corresponding tab
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+                
+                // If inventory tab is selected, render inventory
+                if (tabId === 'inventory') {
+                    renderInventory();
+                }
+            });
+        });
+
+        // Get Quote Button Functionality
+        document.getElementById('getQuoteBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove active class from all links and tabs
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            
+            // Add active class to contact link
+            document.querySelector('[data-tab="contact"]').classList.add('active');
+            
+            // Show contact tab
+            document.getElementById('contact').classList.add('active');
+            
+            // Scroll to contact form
+            document.getElementById('inquiryForm').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Contact Form Handling with Email Functionality
+        document.getElementById('inquiryForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const service = formData.get('service');
+            const message = formData.get('message');
+            
+            // Hide any previous messages
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('errorMessage').style.display = 'none';
+            
+            try {
+                // Send the inquiry to the server
+                const response = await fetch('https://formspree.io/f/xdkjyvej', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        service: service,
+                        message: message,
+                        _subject: `New Inquiry from ${name} - ${service}`
+                    })
+                });
+                
+                if (response.ok) {
+                    // Show success message
+                    document.getElementById('successMessage').style.display = 'block';
+                    
+                    // Reset form
+                    this.reset();
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error('Failed to send message');
+                }
+            } catch (error) {
+                console.error('Error sending inquiry:', error);
+                
+                // Show error message
+                document.getElementById('errorMessage').style.display = 'block';
+                
+                // Hide error message after 5 seconds
+                setTimeout(() => {
+                    document.getElementById('errorMessage').style.display = 'none';
+                }, 5000);
+            }
+        });
+
+        // Sample inventory data with multiple images - with localStorage
+        let inventory = JSON.parse(localStorage.getItem('macroKoldInventory')) || [
+            {
+                id: 1,
+                code: "MK-AC-001",
+                description: "Commercial Air Conditioning Unit - 5HP capacity, suitable for medium-sized offices or retail spaces. Energy efficient with inverter technology.",
+                location: "Warehouse A, Shelf 3",
+                images: [
+                    "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1544144433-d50aff500b91?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+                ]
+            },
+            {
+                id: 2,
+                code: "MK-REF-002",
+                description: "Commercial Refrigeration System - 10HP compressor with stainless steel finish. Ideal for restaurants and grocery stores.",
+                location: "Warehouse B, Row 2",
+                images: [
+                    "https://images.unsplash.com/photo-1571278365324-c4e156d132d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1581093459790-de2e41d7b1b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+                ]
+            },
+            {
+                id: 3,
+                code: "MK-DOOR-003",
+                description: "Cold Storage Door - Insulated sliding door with automatic closing mechanism. Suitable for walk-in freezers and refrigerators.",
+                location: "Warehouse C, Section 5",
+                images: [
+                    "https://images.unsplash.com/photo-1581093458872-50365a5d1e6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+                ]
+            },
+            {
+                id: 4,
+                code: "MK-PART-004",
+                description: "Compressor Unit - 3HP rotary compressor compatible with most commercial refrigeration systems. Includes warranty.",
+                location: "Parts Room, Shelf 7",
+                images: [
+                    "https://images.unsplash.com/photo-1581093458872-50365a5d1e6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+                ]
+            }
+        ];
+
+        // DOM elements for inventory
+        const inventoryGrid = document.getElementById('inventoryGrid');
+        const itemDetailsPanel = document.getElementById('itemDetailsPanel');
+        const detailsImage = document.getElementById('detailsImage');
+        const detailsCode = document.getElementById('detailsCode');
+        const detailsDescription = document.getElementById('detailsDescription');
+        const detailsLocation = document.getElementById('detailsLocation');
+        const thumbnailContainer = document.getElementById('thumbnailContainer');
+        const imageCounter = document.getElementById('imageCounter');
+        const prevImageBtn = document.getElementById('prevImageBtn');
+        const nextImageBtn = document.getElementById('nextImageBtn');
+        const itemModal = document.getElementById('itemModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const itemForm = document.getElementById('itemForm');
+        const imageInputsContainer = document.getElementById('imageInputsContainer');
+        const addImageBtn = document.getElementById('addImageBtn');
+        const addItemBtn = document.getElementById('addItemBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const saveItemBtn = document.getElementById('saveItemBtn');
+        const searchInput = document.getElementById('searchInput');
+        const printBtn = document.getElementById('printBtn');
+        const printItemBtn = document.getElementById('printItemBtn');
+        const editDetailsBtn = document.getElementById('editDetailsBtn');
+        const deleteDetailsBtn = document.getElementById('deleteDetailsBtn');
+
+        // Current item being edited and selected
+        let currentEditItemId = null;
+        let selectedItemId = null;
+        let currentImageIndex = 0;
+
+        // Initialize the inventory display
+        function renderInventory(items = inventory) {
+            inventoryGrid.innerHTML = '';
+            
+            if (items.length === 0) {
+                inventoryGrid.innerHTML = '<div class="no-items">No items found. Add some items to your inventory.</div>';
+                return;
+            }
+            
+            items.forEach(item => {
+                const itemCard = document.createElement('div');
+                itemCard.className = `item-card ${selectedItemId === item.id ? 'selected' : ''}`;
+                itemCard.innerHTML = `
+                    <img src="${item.images[0]}" alt="${item.description}" class="item-image">
+                    <div class="item-card-details">
+                        <div class="item-code">${item.code}</div>
+                        <div class="item-description">${item.description}</div>
+                        <div class="item-location">${item.location}</div>
+                    </div>
+                    <div class="item-actions">
+                        <button class="inventory-btn btn-edit" onclick="editItem(${item.id})">Edit</button>
+                        <button class="inventory-btn btn-delete" onclick="deleteItem(${item.id})">Delete</button>
+                    </div>
+                `;
+                
+                // Add click event to select the item
+                itemCard.addEventListener('click', (e) => {
+                    if (!e.target.closest('button')) {
+                        selectItem(item.id);
+                    }
+                });
+                
+                inventoryGrid.appendChild(itemCard);
+            });
+        }
+
+        // Select an item to show details
+        function selectItem(id) {
+            selectedItemId = id;
+            const item = inventory.find(item => item.id === id);
+            
+            if (item) {
+                currentImageIndex = 0;
+                updateItemDetails(item);
+                itemDetailsPanel.classList.add('active');
+                
+                // Update the selected state in the grid
+                renderInventory();
+            }
+        }
+
+        // Update the item details panel
+        function updateItemDetails(item) {
+            detailsImage.src = item.images[currentImageIndex];
+            detailsImage.alt = item.description;
+            detailsCode.textContent = item.code;
+            detailsDescription.textContent = item.description;
+            detailsLocation.textContent = item.location;
+            
+            // Update image counter
+            imageCounter.textContent = `${currentImageIndex + 1} / ${item.images.length}`;
+            
+            // Update thumbnails
+            updateThumbnails(item.images);
+        }
+
+        // Update thumbnails for the selected item
+        function updateThumbnails(images) {
+            thumbnailContainer.innerHTML = '';
+            
+            images.forEach((image, index) => {
+                const thumbnail = document.createElement('img');
+                thumbnail.src = image;
+                thumbnail.alt = `Thumbnail ${index + 1}`;
+                thumbnail.className = `thumbnail ${index === currentImageIndex ? 'active' : ''}`;
+                thumbnail.addEventListener('click', () => {
+                    currentImageIndex = index;
+                    updateItemDetails(inventory.find(item => item.id === selectedItemId));
+                });
+                thumbnailContainer.appendChild(thumbnail);
+            });
+        }
+
+        // Navigate to previous image
+        function prevImage() {
+            if (selectedItemId) {
+                const item = inventory.find(item => item.id === selectedItemId);
+                if (item && item.images.length > 0) {
+                    currentImageIndex = (currentImageIndex - 1 + item.images.length) % item.images.length;
+                    updateItemDetails(item);
+                }
+            }
+        }
+
+        // Navigate to next image
+        function nextImage() {
+            if (selectedItemId) {
+                const item = inventory.find(item => item.id === selectedItemId);
+                if (item && item.images.length > 0) {
+                    currentImageIndex = (currentImageIndex + 1) % item.images.length;
+                    updateItemDetails(item);
+                }
+            }
+        }
+
+        // Open modal for adding new item
+        function openAddModal() {
+            modalTitle.textContent = 'Add New Item';
+            itemForm.reset();
+            currentEditItemId = null;
+            
+            // Reset image inputs to one
+            imageInputsContainer.innerHTML = `
+                <div class="image-input">
+                    <input type="text" class="image-url" placeholder="Image URL" required>
+                    <button type="button" class="btn-remove-image">Remove</button>
+                </div>
+            `;
+            
+            itemModal.style.display = 'flex';
+        }
+
+        // Open modal for editing existing item
+        function editItem(id) {
+            const item = inventory.find(item => item.id === id);
+            if (item) {
+                modalTitle.textContent = 'Edit Item';
+                document.getElementById('itemCode').value = item.code;
+                document.getElementById('itemDescription').value = item.description;
+                document.getElementById('itemLocation').value = item.location;
+                
+                // Populate image inputs
+                imageInputsContainer.innerHTML = '';
+                item.images.forEach(imageUrl => {
+                    addImageInput(imageUrl);
+                });
+                
+                currentEditItemId = id;
+                itemModal.style.display = 'flex';
+            }
+        }
+
+        // Add image input field
+        function addImageInput(value = '') {
+            const imageInput = document.createElement('div');
+            imageInput.className = 'image-input';
+            imageInput.innerHTML = `
+                <input type="text" class="image-url" placeholder="Image URL" value="${value}" required>
+                <button type="button" class="btn-remove-image">Remove</button>
+            `;
+            imageInputsContainer.appendChild(imageInput);
+        }
+
+        // Delete an item
+        function deleteItem(id) {
+            if (confirm('Are you sure you want to delete this item?')) {
+                inventory = inventory.filter(item => item.id !== id);
+                
+                // Save to localStorage
+                localStorage.setItem('macroKoldInventory', JSON.stringify(inventory));
+                
+                // If the deleted item was selected, clear the details panel
+                if (selectedItemId === id) {
+                    selectedItemId = null;
+                    itemDetailsPanel.classList.remove('active');
+                }
+                
+                renderInventory();
+            }
+        }
+
+        // Save item (add new or update existing)
+        function saveItem(e) {
+            e.preventDefault();
+            
+            const code = document.getElementById('itemCode').value;
+            const description = document.getElementById('itemDescription').value;
+            const location = document.getElementById('itemLocation').value;
+            
+            // Get all image URLs
+            const imageInputs = document.querySelectorAll('.image-url');
+            const images = Array.from(imageInputs)
+                .map(input => input.value.trim())
+                .filter(url => url !== '');
+            
+            if (images.length === 0) {
+                alert('Please add at least one image URL');
+                return;
+            }
+            
+            if (currentEditItemId) {
+                // Update existing item
+                const index = inventory.findIndex(item => item.id === currentEditItemId);
+                if (index !== -1) {
+                    inventory[index] = {
+                        ...inventory[index],
+                        code,
+                        description,
+                        location,
+                        images
+                    };
+                    
+                    // If the updated item is selected, update the details panel
+                    if (selectedItemId === currentEditItemId) {
+                        selectItem(currentEditItemId);
+                    }
+                }
+            } else {
+                // Add new item
+                const newId = inventory.length > 0 ? Math.max(...inventory.map(item => item.id)) + 1 : 1;
+                inventory.push({
+                    id: newId,
+                    code,
+                    description,
+                    location,
+                    images
+                });
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('macroKoldInventory', JSON.stringify(inventory));
+            
+            renderInventory();
+            itemModal.style.display = 'none';
+        }
+
+        // Search functionality
+        function searchItems() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const filteredItems = inventory.filter(item => 
+                item.code.toLowerCase().includes(searchTerm) ||
+                item.description.toLowerCase().includes(searchTerm) ||
+                item.location.toLowerCase().includes(searchTerm)
+            );
+            renderInventory(filteredItems);
+            
+            // If the selected item is not in the filtered results, clear the details panel
+            if (selectedItemId && !filteredItems.find(item => item.id === selectedItemId)) {
+                selectedItemId = null;
+                itemDetailsPanel.classList.remove('active');
+            }
+        }
+
+        // Print functionality
+        function printInventory() {
+            window.print();
+        }
+
+        // Print single item
+        function printItem() {
+            if (!selectedItemId) {
+                alert('Please select an item to print');
+                return;
+            }
+            
+            const item = inventory.find(item => item.id === selectedItemId);
+            if (item) {
+                // Create a new window for printing
+                const printWindow = window.open('', '_blank');
+                printWindow.document.write(`
+                    <html>
+                    <head>
+                        <title>Print Item - ${item.code}</title>
+                        <style>
+                            body { font-family: Arial, sans-serif; margin: 20px; }
+                            .print-header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #333; padding-bottom: 15px; }
+                            .item-image { max-width: 400px; width: 100%; height: auto; display: block; margin: 0 auto 20px; }
+                            .item-code { font-size: 1.5rem; text-align: center; margin-bottom: 15px; font-weight: bold; }
+                            .item-description { font-size: 1.1rem; margin-bottom: 20px; line-height: 1.5; }
+                            .item-location { font-size: 1.1rem; margin-bottom: 20px; }
+                            .print-footer { margin-top: 30px; text-align: center; font-size: 0.9rem; color: #666; }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="print-header">
+                            <h1>Macro Kold Inc. - Inventory Item</h1>
+                            <p>Printed on: ${new Date().toLocaleDateString()}</p>
+                        </div>
+                        <img src="${item.images[currentImageIndex]}" alt="${item.description}" class="item-image">
+                        <div class="item-code">${item.code}</div>
+                        <div class="item-description">${item.description}</div>
+                        <div class="item-location"><strong>Location:</strong> ${item.location}</div>
+                        <div class="print-footer">
+                            <p>Macro Kold Inc. | The Capitol Center, 1002 Shaw Blvd, Pasig, Metro Manila</p>
+                        </div>
+                    </body>
+                    </html>
+                `);
+                printWindow.document.close();
+                printWindow.print();
+            }
+        }
+
+        // Event listeners
+        addItemBtn.addEventListener('click', openAddModal);
+        cancelBtn.addEventListener('click', () => {
+            itemModal.style.display = 'none';
+        });
+        itemForm.addEventListener('submit', saveItem);
+        searchInput.addEventListener('input', searchItems);
+        printBtn.addEventListener('click', printInventory);
+        printItemBtn.addEventListener('click', printItem);
+        editDetailsBtn.addEventListener('click', () => {
+            if (selectedItemId) {
+                editItem(selectedItemId);
+            }
+        });
+        deleteDetailsBtn.addEventListener('click', () => {
+            if (selectedItemId) {
+                deleteItem(selectedItemId);
+            }
+        });
+        prevImageBtn.addEventListener('click', prevImage);
+        nextImageBtn.addEventListener('click', nextImage);
+        addImageBtn.addEventListener('click', () => {
+            addImageInput();
+        });
+
+        // Event delegation for removing image inputs
+        imageInputsContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('btn-remove-image')) {
+                // Don't remove if there's only one image input left
+                if (document.querySelectorAll('.image-input').length > 1) {
+                    e.target.closest('.image-input').remove();
+                } else {
+                    alert('You need at least one image for the item.');
+                }
+            }
+        });
+
+        // Close modal when clicking outside of it
+        window.addEventListener('click', (e) => {
+            if (e.target === itemModal) {
+                itemModal.style.display = 'none';
+            }
+        });
+
+        // Initialize the inventory display when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // If we're on the inventory tab, render the inventory
+            if (document.getElementById('inventory').classList.contains('active')) {
+                renderInventory();
+            }
+        });
+    </script>
+</body>
+</html>
